@@ -138,6 +138,7 @@ body {
     height: 30px;
     cursor: pointer;
     background-color: #E0FFFF;
+    margin-top: 5px;
 }
 
 .btn-cart:hover {
