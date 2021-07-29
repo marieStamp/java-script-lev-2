@@ -60,6 +60,7 @@ body {
     height: 80px;
     justify-content: space-between;
     width: 80px;
+    align-items: center;
 }
 
 .breadcrump {
