@@ -5,5 +5,6 @@ document.querySelector('.change').addEventListener('click', () => {
 //    text.textContent = text.textContent.replace(/'/gm, '"')
 
 // 2 задание
-    text.textContent = text.textContent.replace(/\B'|'\B/gm, '"')
+    text.textContent = text.textContent.replace(/\B'|'\B/gm, '"')   
 })
+
