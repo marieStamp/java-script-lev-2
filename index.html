@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="header-left">
+                <div class="header-left__logo">
+                    <a class="logo-link" href="index.html">
+                        <img class="header-left_img" src="img/logo.jpg" alt="logo">
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <form action="#" class="search-form" @submit.prevent="filter">
+                    <input type="text" class="search-field" v-model="userSearch">
+                    <button class="btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <div class="header-right_content">
+                    <a class="header-right_link" href="#">
+                        <img src="img/cart.svg" alt="cart">
+                    </a>
+                    <div class="dropdown__cart">
+                        <div class="cartRow cartRow_header" v-for="item of cartItems" :key="item.id_product">
+                            <div>Product {{ item.product_name }}</div>
+                            <div class="cartRow_quantity">Quantity {{ item.quantity }}</div>
+                            <div>Price ₽{{ item.price }}</div>
+                            <div>Delete
+                                <a class="cartRow_delete" href="#"><i class="fas fa-times-circle"
+                                        aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="breadcrump">
+            <div class="breadC container">
+                <div class="breadcrumpH1">
+                    New Arrivals
+                </div>
+                <nav>
+                    <ul class="breadcrump__nav">
+                        <li class="breadcrump__nav_item"><a href="index.html">Home/</a></li>
+                        <li class="breadcrump__nav_item"><a href="#">Electronic devices/</a></li>
+                        <li class="breadcrump__nav_item"><a href="#">Tools/</a></li>
+                        <li class="breadcrump__nav_item"><a href="#">New Arrivals</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <main>
+            <div class="products">
+                <div class="item" v-for="product of filtered" :key="product.id_product">
+                    <img class="item_img" :src="`img/catalogue/${product.id_product}.jpg`">
+                    <p class="itemName">{{ product.product_name }}</p>
+                    <p class="itemPrice">₽ {{ product.price }}</p>
+                    <button class="btn-cart" type="button">Add to Cart</button>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <footer class="footer">
+        &copy; 2021 All Rights Reserved.
+    </footer>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src=" js/main.js"> </script>
+</body>
+
+</html>
