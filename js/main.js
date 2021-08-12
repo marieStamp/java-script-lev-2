@@ -8,14 +8,44 @@ const app = new Vue({
         products: [],
         cartItems: [],
         filtered: [],
-        userSearch: ''
+        userSearch: '',
+        imgProduct: '`img/catalogue/${product.id_product}.jpg`',
+        serverError: false
     },
     methods: {
         getJson(url){
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => {
-                    console.log(error);
+                    this.serverError = true;
+                })
+        },
+
+        addProduct(item){
+            this.getJson(`${API}/addToBasket.json`)
+                .then(data => {
+                    if(data.result === 1){
+                       let find = this.cartItems.find(el => el.id_product === item.id_product);
+                       if(find){
+                           find.quantity++;
+                       } else {
+                           const prod = Object.assign({quantity: 1}, item);
+                           this.cartItems.push(prod)
+                       }
+                    }
+                })
+        },
+        remove(item){
+            this.getJson(`${API}/addToBasket.json`)
+                .then(data => {
+                    if (data.result === 1) {
+                        if(item.quantity>1){
+                            item.quantity--;
+                        } else {
+                            this.cartItems.splice(this.cartItems.indexOf(item), 1);
+                        }
+                    }
+                    
                 })
         },
 

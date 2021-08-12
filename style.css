@@ -75,7 +75,7 @@ header {
 }
 
 .dropdown__cart {
-    width: 280px;
+    width: 350px;
     background-color: #ffffff;
     border-radius: 5px;
     padding: 18px;
@@ -94,7 +94,7 @@ header {
     background-color: #ffffff;
     position: absolute;
     top: -8px;
-    left: 280px;
+    left: 350px;
     transform: rotate(45deg);
     border-left: 1px solid #e8e8e8;
     border-top: 1px solid #e8e8e8;
@@ -113,15 +113,26 @@ header {
     color: #40E0D0;
 }
 
-.cartRow {
+.cart-item {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
-    margin-bottom: 10px;
+    text-align: center;
+}
+
+.cart-item:not(:last-child) {
     border-bottom: 1px solid #eaeaea;
+    margin-bottom: 10px;
     padding-bottom: 10px;
 }
 
+.del-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #40E0D0;
+    cursor: pointer;
+}
 
 .breadcrump {
     background-color: #f8f3f4;
@@ -244,4 +255,18 @@ header {
 .cartRow_delete {
     display: flex;
     justify-content: center;
+}
+
+.server-error {
+    display: flex;
+    justify-content: center;
+}
+
+.server-error_text {
+    color: red;
+    padding-top: 50px;
+}
+
+.cart_empty {
+    text-align: center;
 }
